@@ -18,3 +18,4 @@ result = opener.open('http://202.115.47.141/bxqcjcxAction.do')
 soup = BeautifulSoup(result,'lxml')
 print soup
 print(soup.find_all("tr","odd"))
+#scu jwc网站真的蛋疼
