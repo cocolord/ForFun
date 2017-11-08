@@ -36,6 +36,7 @@ fl.close()
 
 # re 基础
 # http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html
+# https://docs.python.org/3/library/re.html
 
 # 网络请求
 # http://www.jianshu.com/p/46287bd8559b
