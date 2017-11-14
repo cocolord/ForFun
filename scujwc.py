@@ -8,10 +8,15 @@ from bs4 import BeautifulSoup
 import re
 class JWC:
     def __init__(self):
+        #先制作cookie
         self.loginURL = 'http://202.115.47.141/loginAction.do'
+
+        #这个是使用postman获得的查询本学期成绩的实际地址
         self.crawlURL = 'http://202.115.47.141/bxqcjcxAction.do'
+        #cookie保存登录状态
         self.cookiename = 'cookie.txt'
         self.cookie = cookielib.MozillaCookieJar(self.cookiename)
+
         self.handler = urllib2.HTTPCookieProcessor(self.cookie)
         self.opener = urllib2.build_opener(self.handler)
         self.postdata = urllib.urlencode({
@@ -59,6 +64,9 @@ class JWC:
             item[0], item[1], item[2], item[3], item[4], item[5], item[6])
             index += 1
 
+
+#可以加入到数据库中,计算绩点
+#暂时未实现
 if __name__ == '__main__':
     jwc = JWC()
     jwc.printGrades()
