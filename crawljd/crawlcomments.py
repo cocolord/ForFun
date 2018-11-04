@@ -2,7 +2,7 @@ import re
 import pandas as pd
 import requests
 from os import path
-with open('/home/dong/Documents/iphonexcomments.txt','wt') as ip:
+with open('iphonexcomments.txt','wt') as ip:
     for i in range(1,120):
         try:
             response = requests.get(
@@ -10,10 +10,11 @@ with open('/home/dong/Documents/iphonexcomments.txt','wt') as ip:
             response = response.text
             pat = '"content":"(.*?)",'
             res = re.findall(pat, response)
-            for i in res:
-                i = i.replace('\\n','')
-                ip.write(i)
-                ip.write('\n')
+            for j in res:
+                j = j.replace('\\n','')
+                if i%2==0:
+                    ip.write(j)
+                    ip.write('\n')
         except:
             print('爬第'+str(i)+'出现问题')
             continue
