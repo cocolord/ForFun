@@ -1,0 +1,3 @@
+This program is to crawl jd comments, visualize keywords and do some sentiment analysis.
+To run this program, you should first run 'crawlcomments.py', if succeed, run 'gen_word_cloud.py'
+The negative comments is stored in 'negative_comments.txt'
