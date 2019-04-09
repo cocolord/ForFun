@@ -8,7 +8,7 @@ import traceback
 from snownlp import SnowNLP
 from os import path
 import snownlp
-
+ret = set()
 neg = codecs.open('negative_comments.txt','w')
 with codecs.open('iphonexcomments.txt','w') as ip:
     for i in range(1,100):
@@ -21,12 +21,11 @@ with codecs.open('iphonexcomments.txt','w') as ip:
             for j in res:
                 j = j.replace('\\n','')
                 j1 = SnowNLP(j)
-                ip.write(j)
+                ret.add(j)
                 if j1.sentiments < 0.05:
                     neg.write(j)
                     neg.write('\n')
-                ip.write('\n')
         except:
 		    traceback.print_exc()
-
-
+    for i in ret:
+        ip.write(i+'\n')
